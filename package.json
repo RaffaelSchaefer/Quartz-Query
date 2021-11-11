@@ -26,6 +26,8 @@
     "terser": "^5.7.0",
     "ts-jest": "^27.0.7",
     "typescript": "^4.4.4",
-    "uglifyjs-folder": "^2.0.0"
+    "uglifyjs-folder": "^2.0.0",
+    "electron": "^13.0.1",
+    "electron-packager": "^15.2.0"
   }
 }
