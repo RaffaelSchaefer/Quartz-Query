@@ -5,3 +5,5 @@ node_modules
 *.js
 # Files
 # Exceptions
+!jest.config.js
+!babel.conig.js
