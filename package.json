@@ -1,5 +1,5 @@
 {
-  "name": "quarz_query",
+  "name": "quartz_query",
   "version": "0.0.1",
   "description": "A mineral based search engine for my dad",
   "main": "index.js",
