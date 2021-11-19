@@ -18,6 +18,7 @@
     "@babel/preset-typescript": "^7.16.0",
     "@types/jest": "^27.0.2",
     "babel-jest": "^27.3.1",
+    "csvtojson": "^2.0.10",
     "jest": "^27.3.1",
     "sass": "^1.43.4",
     "terser": "^5.7.0",
