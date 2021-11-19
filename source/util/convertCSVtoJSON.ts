@@ -1,9 +1,9 @@
 const fs = require("fs");
 
 const convertCSVtoJSON = (path: string) => {
+    let types: string[] = [];
     try {
-        const csv = fs.readFileSync(path, "utf-8");
-        console.log(csv);
+        const tmp = fs.read(path, "utf-8");
     } catch (err) {
         console.log(err);
     }
