@@ -1,3 +1,3 @@
 const convert  = require("./util/convertCSVtoJSON.js")
 
-convert("./source/db/mineral_data_german_211119.csv","source/db","mineral_data_german_211119.json").then().catch();
+convert("./src/db/csv/mineral_data_german_211119.csv","src/db/json","mineral_data_german_211119.json").then().catch();
