@@ -1,9 +1,12 @@
 # Folders
 .idea
 node_modules
+build
 # Filetypes
 *.js
 # Files
+yarn.lock
+package-lock.json
 # Exceptions
 !jest.config.js
 !babel.conig.js

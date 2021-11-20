@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "typescript_compile": "tsc --build tsconfig.json",
-    "convert": "npm run typescript_compile && node src/app.js"
+    "prettrier": "npx prettier --write ."
   },
   "keywords": [
     "mineral"
