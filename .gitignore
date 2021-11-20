@@ -1,12 +1,17 @@
 # Folders
+# IDE
 .idea
+# Node.js
 node_modules
-build
+# Web-Folder
+web/scripts
+web/css
 # Filetypes
 *.js
 # Files
 yarn.lock
 package-lock.json
 # Exceptions
+# Files
 !jest.config.js
 !babel.conig.js
