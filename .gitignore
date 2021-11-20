@@ -4,7 +4,7 @@
 # Node.js
 node_modules
 # Src-Folder
-web/db/json
+src/db/json
 # Web-Folder
 web/scripts
 web/css
