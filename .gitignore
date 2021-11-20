@@ -3,9 +3,12 @@
 .idea
 # Node.js
 node_modules
+# Src-Folder
+src/db/json
 # Web-Folder
 web/scripts
 web/css
+web/db
 # Filetypes
 *.js
 # Files
