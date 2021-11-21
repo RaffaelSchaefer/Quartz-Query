@@ -7,3 +7,6 @@ coverage
 
 # Ignore all HTML files
 *.js
+
+#Execptions
+!build/db/json
