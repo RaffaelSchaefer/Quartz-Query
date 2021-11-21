@@ -4,9 +4,10 @@
 # Node.js
 node_modules
 # Build-Folder
-build/scripts
-build/css
-build/db/json
+build/client/scripts
+build/client/css
+build/server/db
+build/server/scripts
 # Filetypes
 *.js
 # Files

@@ -1,4 +1,4 @@
-const conversion = require("./scripts/util/convertCSVtoJSON");
+const conversion = require("./client/scripts/util/convertCSVtoJSON");
 conversion(
   "db/csv/mineral_data_german_211119.csv",
   "db/json",
