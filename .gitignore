@@ -3,9 +3,10 @@
 .idea
 # Node.js
 node_modules
-# Web-Folder
-web/scripts
-web/css
+# Build-Folder
+build/scripts
+build/css
+build/db/json
 # Filetypes
 *.js
 # Files

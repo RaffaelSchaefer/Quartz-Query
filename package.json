@@ -6,6 +6,7 @@
   "scripts": {
     "sass_compile": "npx --no-install sass --no-source-map ./src/sass/:./web/css/",
     "typescript_compile": "tsc --build tsconfig.json",
+    "genJSON": "node web/scripts/util/convertCSVtoJSON.js",
     "prettrier": "npx prettier --write .",
     "minify": "npx --no-install uglifyjs-folder --log-level warning -x .js ./web/scripts/ -eo ./web/scripts/"
   },
