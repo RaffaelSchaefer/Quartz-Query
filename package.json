@@ -4,6 +4,7 @@
   "description": "A mineral based search engine for my dad",
   "main": "index.js",
   "scripts": {
+    "test": "npx jest",
     "sass_compile": "npx --no-install sass --no-source-map src/client/sass/:./build/client/css/",
     "typescript_compile": "tsc --build tsconfig.json",
     "init": "npm run sass_compile && npm run typescript_compile && npm run prettrier",
