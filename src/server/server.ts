@@ -1,6 +1,9 @@
 const express = require("express")();
+const cors = require('cors');
 const db: any = require("./db/json/mineral_data_german_211119.json");
 const PORT: number = 8080;
+
+express.use(cors());
 
 express.listen(PORT, () =>
   console.log(`Its alive on http://localhost:${PORT}`)
