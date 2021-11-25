@@ -9,7 +9,10 @@
     "typescript_compile": "tsc --build tsconfig.json",
     "init": "npm run sass_compile && npm run typescript_compile && npm run prettrier",
     "prettrier": "npx prettier --write .",
-    "minify": "npx --no-install uglifyjs-folder --log-level warning -x .js ./web/scripts/ -eo ./web/scripts/"
+    "minify": "npx --no-install uglifyjs-folder --log-level warning -x .js ./build/ -eo ./build/",
+    "compile": "npm run sass_compile && npm run typescript_compile && npm run prettrier && npm run minify",
+    "build_app_macOS": "electron-packager ./build/client/ Quartz_query_client-darwin-x64 --platform=darwin --arch=x64",
+    "build_macOS": "npm run compile && npm run build_app_macOS"
   },
   "keywords": [
     "mineral"
@@ -23,6 +26,8 @@
     "@types/jest": "^27.0.2",
     "babel-jest": "^27.3.1",
     "csvtojson": "^2.0.10",
+    "electron": "^16.0.2",
+    "electron-packager": "^15.4.0",
     "jest": "^27.3.1",
     "prettier": "2.4.1",
     "sass": "^1.43.4",

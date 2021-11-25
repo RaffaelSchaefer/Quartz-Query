@@ -3,6 +3,8 @@
 .idea
 # Node.js
 node_modules
+# Folder
+NoiseArt-darwin-x64
 # Build-Folder
 build/client/scripts
 build/client/css
