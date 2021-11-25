@@ -2,7 +2,7 @@
   "name": "quartz_query",
   "version": "0.0.1",
   "description": "A mineral based search engine for my dad",
-  "main": "index.js",
+  "main": "",
   "scripts": {
     "test": "npx jest",
     "sass_compile": "npx --no-install sass --no-source-map src/client/sass/:./build/client/css/",
@@ -35,5 +35,8 @@
     "ts-jest": "^27.0.7",
     "typescript": "^4.4.4",
     "uglifyjs-folder": "^2.0.0"
+  },
+  "dependencies": {
+    "axios": "^0.24.0"
   }
 }
