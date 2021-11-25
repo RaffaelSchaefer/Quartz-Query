@@ -1,0 +1,15 @@
+{
+  "name": "quartz_query_server",
+  "version": "0.0.1",
+  "description": "The Quartz Query Server",
+  "main": "main.js",
+  "scripts": {},
+  "keywords": [
+    "mineral",
+    "client"
+  ],
+  "author": "Raffael Elias Schäfer",
+  "license": "",
+  "dependencies": {},
+  "devDependencies": {}
+}
