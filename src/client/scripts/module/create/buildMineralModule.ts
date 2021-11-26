@@ -17,13 +17,15 @@ export async function buildMineralModule(img: boolean, pos: number = 0) {
   displayElement.classList.add("displayElement");
 
   for (let i = 0; i < Object.keys(mineral).length - 2; i++) {
-    const tag = document.createElement("li");
-    const text = document.createTextNode(
-      `${Object.keys(mineral)[i]}: ${mineral.getByIndex(i)}`
-    );
-    tag.appendChild(text);
-    tag.classList.add(`${Object.keys(mineral)[i]}_css`);
-    listElement.appendChild(tag);
+    if (!!mineral.getByIndex(i)) {
+      const tag = document.createElement("li");
+      const text = document.createTextNode(
+        `${Object.keys(mineral)[i]}: ${mineral.getByIndex(i)}`
+      );
+      tag.appendChild(text);
+      tag.classList.add(`${Object.keys(mineral)[i]}_css`);
+      listElement.appendChild(tag);
+    }
   }
   if (img) {
     for (
