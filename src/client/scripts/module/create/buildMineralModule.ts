@@ -1,12 +1,12 @@
 import { fetchMineralDB } from "../intercommunication/fetchMineral.js";
 
 // @ts-ignore
-Object.prototype.getByIndex = function(index) {
+Object.prototype.getByIndex = function (index) {
   // @ts-ignore
   return this[Object.keys(this)[index]];
 };
 
-export async function buildMineralModule(pos: number = 0) {
+export async function buildMineralModule(img: boolean, pos: number = 0) {
   const url = "http://localhost:8080/all";
 
   const mineral: any = await fetchMineralDB(url, pos);
@@ -16,12 +16,28 @@ export async function buildMineralModule(pos: number = 0) {
   const displayElement = document.createElement("div");
   displayElement.classList.add("displayElement");
 
-  for (let i = 0; i < Object.keys(mineral).length; i++) {
-    const tagACode = document.createElement("li");
-    const textACode = document.createTextNode(`${Object.keys(mineral)[i]}: ${mineral.getByIndex(i)}`);
-    tagACode.appendChild(textACode);
-    tagACode.classList.add(`${Object.keys(mineral)[i]}_css`);
-    listElement.appendChild(tagACode);
+  for (let i = 0; i < Object.keys(mineral).length - 2; i++) {
+    const tag = document.createElement("li");
+    const text = document.createTextNode(
+      `${Object.keys(mineral)[i]}: ${mineral.getByIndex(i)}`
+    );
+    tag.appendChild(text);
+    tag.classList.add(`${Object.keys(mineral)[i]}_css`);
+    listElement.appendChild(tag);
+  }
+  if (img) {
+    for (
+      let i = Object.keys(mineral).length;
+      i > Object.keys(mineral).length - 2;
+      i--
+    ) {
+      if (!!mineral.getByIndex(i)) {
+        const tag = document.createElement("img");
+        tag.classList.add(`${Object.keys(mineral)[i]}_css`);
+        tag.src = mineral.getByIndex(i);
+        listElement.appendChild(tag);
+      }
+    }
   }
   displayElement.appendChild(listElement);
   element.appendChild(displayElement);
