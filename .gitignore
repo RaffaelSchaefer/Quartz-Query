@@ -8,8 +8,9 @@ Quartz_query_client-darwin-x64-darwin-x64
 # Build-Folder
 build/client/scripts
 build/client/css
-build/server/db
+build/server/db/csv
 build/server/scripts
+src/server/db/json
 # Filetypes
 *.js
 # Files
