@@ -2,7 +2,7 @@ import { buildMineralModule } from "./scripts/module/create/buildMineralModule.j
 
 let scrollIndex = 0;
 
-for (let i = 0; i < 6; i++) {
+for (let i = 0; i < 10; i++) {
   buildMineralModule(false, scrollIndex);
   scrollIndex++;
 }
