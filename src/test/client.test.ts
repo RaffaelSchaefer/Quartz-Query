@@ -1,3 +1,3 @@
-test("Lore ipsum",() => {
+test("Lore ipsum", () => {
   expect(1).toBeTruthy();
-})
+});

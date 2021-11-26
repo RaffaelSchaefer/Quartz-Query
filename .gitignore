@@ -13,6 +13,7 @@ build/server/scripts
 # Filetypes
 *.js
 # Files
+.DS_Store
 yarn.lock
 # Exceptions
 # Files

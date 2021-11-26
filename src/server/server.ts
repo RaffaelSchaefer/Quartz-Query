@@ -1,5 +1,5 @@
 const express = require("express")();
-const cors = require('cors');
+const cors = require("cors");
 const db: any = require("./db/json/mineral_data_german_211119.json");
 const PORT: number = 8080;
 
@@ -22,7 +22,7 @@ express.get("/demo/single", (req: any, res: any) => {
     Kauf_Tauschpreis: "",
     Wert_DM: "",
     Fotolink1: "",
-    Fotolink2: ""
+    Fotolink2: "",
   });
 });
 
@@ -40,7 +40,7 @@ express.get("/demo/multiple", (req: any, res: any) => {
       Kauf_Tauschpreis: "",
       Wert_DM: "",
       Fotolink1: "",
-      Fotolink2: ""
+      Fotolink2: "",
     },
     {
       A_Code: "AgMin-Ag-1-1-19",
@@ -54,7 +54,7 @@ express.get("/demo/multiple", (req: any, res: any) => {
       Kauf_Tauschpreis: "",
       Wert_DM: "",
       Fotolink1: "",
-      Fotolink2: ""
+      Fotolink2: "",
     },
     {
       A_Code: "AgMin-Ag-1-1-19",
@@ -68,20 +68,7 @@ express.get("/demo/multiple", (req: any, res: any) => {
       Kauf_Tauschpreis: "",
       Wert_DM: "",
       Fotolink1: "",
-      Fotolink2: ""
-    }, {
-      A_Code: "AgMin-Ag-1-1-19",
-      Name: "Silber",
-      Paragenese: "",
-      Fundort: "Batopilas, Mexico",
-      Ausbildung: "Zwillinge nach dem Spinellgesetz",
-      Funddatum: "",
-      Kaufdatum: "",
-      Tauschdatum: "",
-      Kauf_Tauschpreis: "",
-      Wert_DM: "",
-      Fotolink1: "",
-      Fotolink2: ""
+      Fotolink2: "",
     },
     {
       A_Code: "AgMin-Ag-1-1-19",
@@ -95,8 +82,9 @@ express.get("/demo/multiple", (req: any, res: any) => {
       Kauf_Tauschpreis: "",
       Wert_DM: "",
       Fotolink1: "",
-      Fotolink2: ""
-    }, {
+      Fotolink2: "",
+    },
+    {
       A_Code: "AgMin-Ag-1-1-19",
       Name: "Silber",
       Paragenese: "",
@@ -108,8 +96,22 @@ express.get("/demo/multiple", (req: any, res: any) => {
       Kauf_Tauschpreis: "",
       Wert_DM: "",
       Fotolink1: "",
-      Fotolink2: ""
-    }
+      Fotolink2: "",
+    },
+    {
+      A_Code: "AgMin-Ag-1-1-19",
+      Name: "Silber",
+      Paragenese: "",
+      Fundort: "Batopilas, Mexico",
+      Ausbildung: "Zwillinge nach dem Spinellgesetz",
+      Funddatum: "",
+      Kaufdatum: "",
+      Tauschdatum: "",
+      Kauf_Tauschpreis: "",
+      Wert_DM: "",
+      Fotolink1: "",
+      Fotolink2: "",
+    },
   ]);
 });
 
