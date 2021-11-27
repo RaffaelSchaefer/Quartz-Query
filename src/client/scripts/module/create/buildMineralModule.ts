@@ -6,12 +6,16 @@ Object.prototype.getByIndex = function (index) {
   return this[Object.keys(this)[index]];
 };
 
-export async function buildMineralModule(img: boolean, pos: number = 0) {
+export async function buildMineralModule(
+  img: boolean,
+  pos: number = 0,
+  destination: string
+) {
   const url = "http://localhost:8080/all";
 
   const mineral: any = await fetchMineralDB(url, pos);
 
-  const element = document.getElementById("content")!;
+  const element = document.getElementById(destination)!;
   const listElement = document.createElement("ul");
   const displayElement = document.createElement("div");
   displayElement.classList.add("displayElement");
@@ -42,5 +46,6 @@ export async function buildMineralModule(img: boolean, pos: number = 0) {
     }
   }
   displayElement.appendChild(listElement);
+  displayElement.setAttribute("id", `${pos}`);
   element.appendChild(displayElement);
 }
