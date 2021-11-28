@@ -31,7 +31,10 @@ restAPI.get("/mineral/filtered/:identifier/:keyword", (req: any, res: any) => {
   res.status(200).send(fDB(db, identifier, keyword));
 });
 
-restAPI.get("/mineral/filtered/:identifier/:keyword/:id", (req: any, res: any) => {
-  const { identifier, keyword, id } = req.params;
-  res.status(200).send(fDB(db, identifier, keyword)[id]);
-});
+restAPI.get(
+  "/mineral/filtered/:identifier/:keyword/:id",
+  (req: any, res: any) => {
+    const { identifier, keyword, id } = req.params;
+    res.status(200).send(fDB(db, identifier, keyword)[id]);
+  }
+);

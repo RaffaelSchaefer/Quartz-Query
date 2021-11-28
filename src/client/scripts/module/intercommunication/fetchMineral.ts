@@ -3,18 +3,18 @@ export async function fetchMineralDB(
   pos: number | undefined = undefined
 ) {
   return new Promise((resolve, reject) => {
-    //@ts-ignore
-    axios.get(url).then(async (response) => {
-      let data = response.data;
-      if (pos === undefined) {
-        resolve(data);
-      } else {
-        if (0 < pos < data.length) {
-          resolve(data[pos]);
-        } else {
-          reject("ERROR: Position doesn't belong to db");
-        }
-      }
-    });
-  }).catch((error: any) => console.log(error));
+    if (pos === undefined) {
+      // @ts-ignore
+      axios
+        .get(url)
+        .then(async (response: { data: any }) => resolve(response.data))
+        .catch((err: any) => reject(err));
+    } else {
+      // @ts-ignore
+      axios
+        .get(`${url}/${pos}`)
+        .then(async (response: { data: any }) => resolve(response.data))
+        .catch((err: any) => reject(err));
+    }
+  });
 }

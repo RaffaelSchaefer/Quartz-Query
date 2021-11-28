@@ -9,10 +9,9 @@ Object.prototype.getByIndex = function (index) {
 export async function buildMineralModule(
   img: boolean,
   pos: number = 0,
-  destination: string
+  destination: string,
+  url: string = "http://localhost:8080/mineral"
 ) {
-  const url = "http://localhost:8080/mineral";
-
   const mineral: any = await fetchMineralDB(url, pos);
 
   const element = document.getElementById(destination)!;
