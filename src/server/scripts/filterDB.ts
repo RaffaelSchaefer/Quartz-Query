@@ -52,14 +52,15 @@ function filter(db: any, identifier: number, keyword: string) {
     if (db[i].getByIndex(identifier) == keyword) {
       cm++;
       result += JSON.stringify(db[i]);
-      if (cm < aom - 1) {
-        result += ",";
+      if (cm < aom) {
+        result += ",\n";
+      } else {
+        result += "\n";
       }
-      result += "\n";
     }
   }
   result += "]";
-  //result = JSON.parse(result);
+  result = JSON.parse(result);
   return result;
 }
 
