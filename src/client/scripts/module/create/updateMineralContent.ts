@@ -7,7 +7,7 @@ Object.prototype.getByIndex = function (index) {
 };
 
 export async function updateMineralContent(pos: number = 0) {
-  const url = "http://localhost:8080/all";
+  const url = "http://localhost:8080/mineral";
 
   const mineral: any = await fetchMineralDB(url, pos);
 

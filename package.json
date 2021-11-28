@@ -12,7 +12,7 @@
     "compile": "npm run prettrier && npm run sass_compile && npm run typescript_compile",
     "build_app_macOS": "electron-packager ./build/client/ Quartz_query_client-darwin-x64 --platform=darwin --arch=x64",
     "build_macOS": "npm run compile && npm run build_app_macOS",
-    "start_server": "node build/server/server.js"
+    "start_server": "npm run typescript_compile && node build/server/server.js"
   },
   "keywords": [
     "mineral"

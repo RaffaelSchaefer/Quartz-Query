@@ -1,120 +1,37 @@
-const express = require("express")();
+const fDB = require("./scripts/filterDB");
+const express = require("express");
+const restAPI = express();
 const cors = require("cors");
 const db: any = require("./db/json/mineral_data_german_211119.json");
 const PORT: number = 8080;
 
-express.use(cors());
+restAPI.use(express.json());
+restAPI.use(cors());
 
-express.listen(PORT, () =>
+restAPI.listen(PORT, () =>
   console.log(`Its alive on http://localhost:${PORT}`)
 );
 
-express.get("/demo/single", (req: any, res: any) => {
-  res.status(200).send({
-    A_Code: "AgMin-Ag-1-1-19",
-    Name: "Silber",
-    Paragenese: "",
-    Fundort: "Batopilas, Mexico",
-    Ausbildung: "Zwillinge nach dem Spinellgesetz",
-    Funddatum: "",
-    Kaufdatum: "",
-    Tauschdatum: "",
-    Kauf_Tauschpreis: "",
-    Wert_DM: "",
-    Fotolink1: "",
-    Fotolink2: "",
-  });
-});
-
-express.get("/demo/multiple", (req: any, res: any) => {
-  res.status(200).send([
-    {
-      A_Code: "AgMin-Ag-1-1-19",
-      Name: "Silber",
-      Paragenese: "",
-      Fundort: "Batopilas, Mexico",
-      Ausbildung: "Zwillinge nach dem Spinellgesetz",
-      Funddatum: "",
-      Kaufdatum: "",
-      Tauschdatum: "",
-      Kauf_Tauschpreis: "",
-      Wert_DM: "",
-      Fotolink1: "",
-      Fotolink2: "",
-    },
-    {
-      A_Code: "AgMin-Ag-1-1-19",
-      Name: "Silber",
-      Paragenese: "",
-      Fundort: "Batopilas, Mexico",
-      Ausbildung: "Zwillinge nach dem Spinellgesetz",
-      Funddatum: "",
-      Kaufdatum: "",
-      Tauschdatum: "",
-      Kauf_Tauschpreis: "",
-      Wert_DM: "",
-      Fotolink1: "",
-      Fotolink2: "",
-    },
-    {
-      A_Code: "AgMin-Ag-1-1-19",
-      Name: "Silber",
-      Paragenese: "",
-      Fundort: "Batopilas, Mexico",
-      Ausbildung: "Zwillinge nach dem Spinellgesetz",
-      Funddatum: "",
-      Kaufdatum: "",
-      Tauschdatum: "",
-      Kauf_Tauschpreis: "",
-      Wert_DM: "",
-      Fotolink1: "",
-      Fotolink2: "",
-    },
-    {
-      A_Code: "AgMin-Ag-1-1-19",
-      Name: "Silber",
-      Paragenese: "",
-      Fundort: "Batopilas, Mexico",
-      Ausbildung: "Zwillinge nach dem Spinellgesetz",
-      Funddatum: "",
-      Kaufdatum: "",
-      Tauschdatum: "",
-      Kauf_Tauschpreis: "",
-      Wert_DM: "",
-      Fotolink1: "",
-      Fotolink2: "",
-    },
-    {
-      A_Code: "AgMin-Ag-1-1-19",
-      Name: "Silber",
-      Paragenese: "",
-      Fundort: "Batopilas, Mexico",
-      Ausbildung: "Zwillinge nach dem Spinellgesetz",
-      Funddatum: "",
-      Kaufdatum: "",
-      Tauschdatum: "",
-      Kauf_Tauschpreis: "",
-      Wert_DM: "",
-      Fotolink1: "",
-      Fotolink2: "",
-    },
-    {
-      A_Code: "AgMin-Ag-1-1-19",
-      Name: "Silber",
-      Paragenese: "",
-      Fundort: "Batopilas, Mexico",
-      Ausbildung: "Zwillinge nach dem Spinellgesetz",
-      Funddatum: "",
-      Kaufdatum: "",
-      Tauschdatum: "",
-      Kauf_Tauschpreis: "",
-      Wert_DM: "",
-      Fotolink1: "",
-      Fotolink2: "",
-    },
-  ]);
-});
-
-express.get("/all", (req: any, res: any) => {
+restAPI.get("/mineral", (req: any, res: any) => {
   res.status(200).send(db);
+});
+
+restAPI.get("/mineral/:id", (req: any, res: any) => {
+  const { id } = req.params;
+  console.log(id);
+  if (0 < id < db.length) {
+    res.status(200).send(db[id]);
+  } else {
+    res.status(404);
+  }
+});
+
+restAPI.get("/mineral/filtered/:identifier/:keyword", (req: any, res: any) => {
+  const { identifier, keyword } = req.params;
+  res.status(200).send(fDB(db, identifier, keyword));
+});
+
+restAPI.get("/mineral/filtered/:identifier/:id", (req: any, res: any) => {
+  const { identifier, keyword, id } = req.params;
+  res.status(200).send(fDB(db, identifier, keyword)[id]);
 });

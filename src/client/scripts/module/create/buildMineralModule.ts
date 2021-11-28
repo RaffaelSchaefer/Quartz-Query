@@ -11,7 +11,7 @@ export async function buildMineralModule(
   pos: number = 0,
   destination: string
 ) {
-  const url = "http://localhost:8080/all";
+  const url = "http://localhost:8080/mineral";
 
   const mineral: any = await fetchMineralDB(url, pos);
 
