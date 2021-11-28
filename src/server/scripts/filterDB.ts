@@ -39,11 +39,6 @@ const filterDB = (db: any, identifier: string, keyword: string) => {
 function filter(db: any, identifier: number, keyword: string) {
   let aom: number = amountOfMatches(db, identifier, keyword); //Amount od Matches
   let cm: number = 0; //Current Match index
-  console.log(
-    `Length: ${db.length}\nIdentifier: ${
-      Object.keys(db[0])[identifier]
-    } => ${identifier}\nKeyword: ${keyword}\nAmount of matches: ${aom}`
-  );
   let result: string = "[";
   if (aom >= 1) {
     result += "\n";
