@@ -1,60 +1,98 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap')
 
-$searchBarHeight: 10vh
+//Color-pallet
+$header-color: rgb(149, 153, 138)
+$module-color: rgb(189, 204, 148)
+$module-color-50: rgba(189, 204, 148, 0.5)
+$highlight-color: rgb(255, 236, 103)
+$background-color: rgb(255, 255, 255)
+$glow-color: rgb(169, 182, 204)
+$shadow-color: rgba(120, 120, 120, 0.33)
 
 *
   padding: 0
   margin: 0
-  font-family: 'Roboto', sans-serif
+  font-family: 'Roboto Mono', monospace
+
+body
+  background-color: $background-color
+  min-width: 1200px
+  min-height: 800px
 
 li
   list-style-type: none
   padding: 1px
-  color: gray
+  color: $header-color
+
+label
+  color: $header-color
+
+input
+  padding: 5px
+  background-color: $module-color-50
+  color: $header-color
+  border: $header-color 2px solid
+  border-left-width: 10px
 
 .displayElement
-  border: solid 2px darkblue
-  border-left-width: 5px
-  background-color: rgba(0, 0, 255, 0.08)
+  border: solid 2px $header-color
+  border-left-width: 10px
+  background-color: $module-color-50
   padding: 10px
   margin: 20px
+  box-shadow: $shadow-color 0 7px 29px 0
 
-#searchBar
-  display: grid
-  place-items: center
+#header
+  display: flex
+  flex-flow: column
   width: 100vw
-  height: $searchBarHeight
-  background-color: darkgray
+  height: 50px
+  background-color: $header-color
+  box-shadow: $shadow-color 0 7px 29px 0
   top: 0
   right: 0
   position: fixed
   z-index: 1
 
-#searchTextInput
-  padding: 10px
-  height: 40%
-  width: 60%
-  border: solid 2px white
-  border-radius: 25px
-  margin: 5px
-
-input[type=text]:focus
-  border: 3px solid #555
-
+#window_name
+  color: white
+  font-family: 'Roboto', sans-serif
+  margin: 15px 0 0 25px
+  
 #wrapper
-  padding-top: $searchBarHeight
   display: flex
-  height: 95vh
+  height: 100vh
   width: 100vw
 
 #content
+  margin-top: 50px
   height: 100vh
   width: 40vw
   top: 0
   right: 0
-  background-color: lightgray
+  
+  background-color: $module-color
+
   position: fixed
 
 #list
+  margin-top: 50px
   height: 100vh
   width: 55vw
+
+#input
+  display: flex
+  flex-flow: row
+  border: solid 2px $header-color
+  border-left-width: 10px
+  background-color: $module-color-50
+  padding: 10px
+  margin: 20px
+  box-shadow: $shadow-color 0 7px 29px 0
+
+#inputSubmit
+  margin-left: 20px
+  padding: 10px
+  background-color: $module-color-50
+  border: solid 2px $header-color

@@ -11,11 +11,21 @@
     />
   </head>
   <body>
-    <div id="searchBar">
-      <input id="searchTextInput" type="text" />
+    <div id="header">
+      <p id="window_name">Quartz Query</p>
     </div>
     <div id="wrapper">
-      <div id="list"></div>
+      <div id="list">
+        <div id="input">
+          <form id="inputForm">
+            <label for="inputIdentifier">Identifier:</label><br>
+            <input type="text" id="inputIdentifier" name="inputIdentifier"><br>
+            <label for="inputKeyword">Keyword:</label><br>
+            <input type="text" id="inputKeyword" name="inputKeyword">
+          </form>
+          <button id="inputSubmit">Search</button>
+        </div>
+      </div>
       <div id="content">
         <h1 id="contentCode"></h1>
         <p id="contentInfo"></p>

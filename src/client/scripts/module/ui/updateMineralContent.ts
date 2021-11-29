@@ -1,4 +1,4 @@
-import { fetchMineralDB } from "../intercommunication/fetchMineral.js";
+import { fetchMineralDB } from "../api/fetchMineral.js";
 
 // @ts-ignore
 Object.prototype.getByIndex = function (index) {
