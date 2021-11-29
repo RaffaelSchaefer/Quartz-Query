@@ -1,13 +1,10 @@
-import { buildMineralModule } from "./module/create/buildMineralModule.js";
+import { buildMineralModule } from "./module/ui/buildMineralModule.js";
 
 let scrollIndex: number = 0;
 
-// @ts-ignore
-if (document.getElementById("searchTextInput")!.value == "") {
-  for (let i = 0; i < 10; i++) {
-    buildMineralModule(false, scrollIndex, "list");
-    scrollIndex++;
-  }
+for (let i = 0; i < 10; i++) {
+  buildMineralModule(false, scrollIndex, "list");
+  scrollIndex++;
 }
 
 window.addEventListener("scroll", () => {

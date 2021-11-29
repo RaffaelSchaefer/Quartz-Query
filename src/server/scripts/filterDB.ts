@@ -1,3 +1,5 @@
+const AOM = require("../util/amountOfMatches");
+
 // @ts-ignore
 Object.prototype.getByIndex = function (index) {
   // @ts-ignore
@@ -37,7 +39,7 @@ const filterDB = (db: any, identifier: string, keyword: string) => {
 };
 
 function filter(db: any, identifier: number, keyword: string) {
-  let aom: number = amountOfMatches(db, identifier, keyword); //Amount od Matches
+  let aom: number = AOM(db, identifier, keyword); //Amount od Matches
   let cm: number = 0; //Current Match index
   let result: string = "[";
   if (aom >= 1) {
@@ -59,13 +61,4 @@ function filter(db: any, identifier: number, keyword: string) {
   return result;
 }
 
-function amountOfMatches(db: any, identifier: number, keyword: string) {
-  let result: number = 0;
-  for (let i = 0; i < db.length; i++) {
-    if (db[i].getByIndex(identifier) == keyword) {
-      result++;
-    }
-  }
-  return result;
-}
 module.exports = filterDB;

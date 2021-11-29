@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <title>Quartz-Query</title>
-    <link type="text/css" rel="stylesheet" href="css/style.css" />
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
     <link
       href="content/img/placeholder_logo/Logo_black.png"
       rel="icon"
@@ -11,17 +11,27 @@
     />
   </head>
   <body>
-    <div id="searchBar">
-      <input id="searchTextInput" type="text">
+    <div id="header">
+      <p id="window_name">Quartz Query</p>
     </div>
     <div id="wrapper">
-      <div id="list"></div>
+      <div id="list">
+        <div id="input">
+          <form id="inputForm">
+            <label for="inputIdentifier">Identifier:</label><br>
+            <input type="text" id="inputIdentifier" name="inputIdentifier"><br>
+            <label for="inputKeyword">Keyword:</label><br>
+            <input type="text" id="inputKeyword" name="inputKeyword">
+          </form>
+          <button id="inputSubmit">Search</button>
+        </div>
+      </div>
       <div id="content">
         <h1 id="contentCode"></h1>
         <p id="contentInfo"></p>
       </div>
     </div>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script type="module" src="scripts/app.js"></script>
+    <script src="scripts/app.js" type="module"></script>
   </body>
 </html>
