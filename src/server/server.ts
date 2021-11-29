@@ -18,7 +18,6 @@ restAPI.get("/mineral", (req: any, res: any) => {
 
 restAPI.get("/mineral/:id", (req: any, res: any) => {
   const { id } = req.params;
-  console.log(id);
   if (0 < id < db.length) {
     res.status(200).send(db[id]);
   } else {
