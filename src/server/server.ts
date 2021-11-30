@@ -1,5 +1,5 @@
 const fDB = require("./scripts/filterDB");
-const aOM = require("./scripts/util/amountOfMatches");
+const gAOM = require("./scripts/util/getAmountOfMatches");
 const express = require("express");
 const restAPI = express();
 const cors = require("cors");
@@ -41,10 +41,16 @@ restAPI.get(
 
 //FIX BUG
 restAPI.get(
-  "mineral/filtered/amount/:identifier/:key",
+    "/amount",
+    (req: any, res: any) => {
+        res.status(200).send(JSON.parse(`{"amount":${db.length}}`));
+    }
+);
+
+restAPI.get(
+  "/mineral/amount/filtered/:identifier/:keyword",
   (req: any, res: any) => {
     const { identifier, keyword } = req.params;
-    const out: string = `{"amount":${aOM(db, identifier, keyword)}`;
-    res.status(200).send(JSON.parse(out));
+    res.status(200).send(JSON.parse(`{"amount":${gAOM(db, identifier, keyword)}}`));
   }
 );
