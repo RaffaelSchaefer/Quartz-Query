@@ -1,4 +1,5 @@
 const fDB = require("./scripts/filterDB");
+const aOM = require("./scripts/util/amountOfMatches")
 const express = require("express");
 const restAPI = express();
 const cors = require("cors");
@@ -37,3 +38,10 @@ restAPI.get(
     res.status(200).send(fDB(db, identifier, keyword)[id]);
   }
 );
+
+//FIX BUG
+restAPI.get("mineral/filtered/amount/:identifier/:key", (req: any, res: any) => {
+  const {identifier, keyword} = req.params;
+  const out:string = `{"amount":${aOM(db, identifier, keyword)}`;
+  res.status(200).send(JSON.parse(out));
+})

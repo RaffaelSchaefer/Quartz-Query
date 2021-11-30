@@ -1,3 +1,2 @@
-export async function search(input: string) {
-  input.split(","); //identifier,keyword
+export async function search(identifier:string, keyword: string) {
 }

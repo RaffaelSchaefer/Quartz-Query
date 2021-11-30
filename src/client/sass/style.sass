@@ -29,11 +29,19 @@ label
   color: $header-color
 
 input
+  z-index: 1
   padding: 5px
   background-color: $module-color-50
   color: $header-color
   border: $header-color 2px solid
   border-left-width: 10px
+
+.buffer
+  display: grid
+  place-items: center
+
+.background
+  z-index: 0
 
 .displayElement
   border: solid 2px $header-color
@@ -42,6 +50,7 @@ input
   padding: 10px
   margin: 20px
   box-shadow: $shadow-color 0 7px 29px 0
+  z-index: 1
 
 #header
   display: flex
@@ -53,13 +62,13 @@ input
   top: 0
   right: 0
   position: fixed
-  z-index: 1
+  z-index: 2
 
 #window_name
   color: white
   font-family: 'Roboto', sans-serif
   margin: 15px 0 0 25px
-  
+
 #wrapper
   display: flex
   height: 100vh
@@ -71,7 +80,7 @@ input
   width: 40vw
   top: 0
   right: 0
-  
+
   background-color: $module-color
 
   position: fixed
@@ -92,7 +101,7 @@ input
   box-shadow: $shadow-color 0 7px 29px 0
 
 #inputSubmit
-  margin-left: 20px
+  margin: 10px
   padding: 10px
   background-color: $module-color-50
   border: solid 2px $header-color

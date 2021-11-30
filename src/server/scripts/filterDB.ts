@@ -1,4 +1,4 @@
-const AOM = require("../util/amountOfMatches");
+const AOM = require("./util/amountOfMatches");
 
 // @ts-ignore
 Object.prototype.getByIndex = function (index) {
