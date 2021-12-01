@@ -1,8 +1,20 @@
 <script lang="ts">
-	export let name: string;
+	import ListElement from "./module/ui/ListElement.svelte";
 </script>
 
 <main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+	<div id="wrapper">
+		<ListElement></ListElement>
+	</div>
 </main>
+
+<style lang="sass">
+	#wrapper
+		position: absolute
+		top: 0
+		left: 0
+		height: 100vh
+		width: 100vw
+		display: grid
+		place-items: center
+</style>
