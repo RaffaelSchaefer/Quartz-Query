@@ -1,3 +1,14 @@
+import App from './App.svelte';
+
+const svelte = new App({
+  target: document.body,
+  props: {
+    name: 'world'
+  }
+});
+
+export default svelte;
+
 const { app, BrowserWindow, Menu } = require("electron");
 
 const path = require("path");

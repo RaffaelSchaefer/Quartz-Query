@@ -13,6 +13,8 @@ build/server/scripts
 src/server/db/json
 # Filetypes
 *.js
+*.css
+*.js.map
 # Files
 .DS_Store
 yarn.lock
@@ -20,3 +22,4 @@ yarn.lock
 # Files
 !jest.config.js
 !babel.conig.js
+!src/client/rollup.config.js
