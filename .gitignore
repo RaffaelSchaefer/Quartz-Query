@@ -24,4 +24,3 @@ yarn.lock
 !jest.config.js
 !babel.conig.js
 !client/rollup.config.js
-!client/public/global.css

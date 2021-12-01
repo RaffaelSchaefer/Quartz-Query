@@ -4,7 +4,7 @@
   "description": "A mineral based search engine for my dad",
   "main": "api/build/server.js",
   "scripts": {
-    "sass_compile": "npx --no-install sass --no-source-map api/src/client/sass/:./build/client/css/",
+    "sass_compile": "npx --no-install sass --no-source-map client/src/:./client/public/",
     "init": "npm run sass_compile && npm run typescript_compile && npm run prettrier",
     "prettrier": "npx prettier --write .",
     "compile": "npm run prettrier && npm run sass_compile && npm run typescript_compile",
