@@ -5,6 +5,7 @@
   "main": "api/build/server.js",
   "scripts": {
     "sass_compile": "npx --no-install sass --no-source-map client/src/:./client/public/",
+    "typescript_compile": "tsc --build tsconfig.json",
     "init": "npm run sass_compile && npm run typescript_compile && npm run prettrier",
     "prettrier": "npx prettier --write .",
     "compile": "npm run prettrier && npm run sass_compile && npm run typescript_compile",
