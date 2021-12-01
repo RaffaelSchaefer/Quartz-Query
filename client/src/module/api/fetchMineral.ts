@@ -1,6 +1,6 @@
 export async function fetchMineralDB(
-    url: string,
-    pos: number | undefined = undefined
+    pos: number | undefined = undefined,
+    url: string = "http://localhost:8080/mineral"
 ) {
     return new Promise((resolve, reject) => {
         if (pos === undefined) {
