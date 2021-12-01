@@ -40,17 +40,16 @@ restAPI.get(
 );
 
 //FIX BUG
-restAPI.get(
-    "/amount",
-    (req: any, res: any) => {
-        res.status(200).send(JSON.parse(`{"amount":${db.length}}`));
-    }
-);
+restAPI.get("/amount", (req: any, res: any) => {
+  res.status(200).send(JSON.parse(`{"amount":${db.length}}`));
+});
 
 restAPI.get(
   "/mineral/amount/filtered/:identifier/:keyword",
   (req: any, res: any) => {
     const { identifier, keyword } = req.params;
-    res.status(200).send(JSON.parse(`{"amount":${gAOM(db, identifier, keyword)}}`));
+    res
+      .status(200)
+      .send(JSON.parse(`{"amount":${gAOM(db, identifier, keyword)}}`));
   }
 );
