@@ -2,17 +2,13 @@
   "name": "quartz_query",
   "version": "0.0.1",
   "description": "A mineral based search engine for my dad",
-  "main": "build/server/server.js",
+  "main": "api/build/server.js",
   "scripts": {
-    "test": "npm run typescript_compile && npx jest",
-    "sass_compile": "npx --no-install sass --no-source-map src/client/sass/:./build/client/css/",
-    "typescript_compile": "tsc --build tsconfig.json",
+    "sass_compile": "npx --no-install sass --no-source-map api/src/client/sass/:./build/client/css/",
     "init": "npm run sass_compile && npm run typescript_compile && npm run prettrier",
     "prettrier": "npx prettier --write .",
     "compile": "npm run prettrier && npm run sass_compile && npm run typescript_compile",
-    "build_app_macOS": "electron-packager ./build/client/ Quartz_query_client-darwin-x64 --platform=darwin --arch=x64",
-    "build_macOS": "npm run compile && npm run build_app_macOS",
-    "start_server": "npm run typescript_compile && node build/server/server.js"
+    "start_server": "npm run typescript_compile && node api/build/server.js"
   },
   "keywords": [
     "mineral"
@@ -20,18 +16,9 @@
   "author": "Raffael Elias Schäfer",
   "license": "",
   "devDependencies": {
-    "@babel/core": "^7.16.0",
-    "@babel/preset-env": "^7.16.0",
-    "@babel/preset-typescript": "^7.16.0",
-    "@types/jest": "^27.0.2",
-    "babel-jest": "^27.3.1",
     "csvtojson": "^2.0.10",
-    "electron": "^16.0.2",
-    "electron-packager": "^15.4.0",
-    "jest": "^27.3.1",
     "prettier": "2.4.1",
     "sass": "^1.43.4",
-    "ts-jest": "^27.0.7",
     "typescript": "^4.4.4"
   },
   "dependencies": {

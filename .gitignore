@@ -6,11 +6,12 @@ node_modules
 # Folder
 Quartz_query_client-darwin-x64-darwin-x64
 # Build-Folder
-build/client/scripts
-build/client/css
-build/server/db/csv
-build/server/scripts
-src/server/db/json
+api/build/client/scripts
+api/build/client/css
+api/build/db/csv
+api/build/scripts
+api/src/db/json
+client/public/build
 # Filetypes
 *.js
 *.css
@@ -22,4 +23,5 @@ yarn.lock
 # Files
 !jest.config.js
 !babel.conig.js
-!src/client/rollup.config.js
+!client/rollup.config.js
+!client/public/global.css
