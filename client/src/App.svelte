@@ -1,13 +1,13 @@
 <script lang="ts">
     import Results from "./module/ui/Results.svelte";
     import Search from "./module/ui/Search.svelte";
-    import {storeIdentifier, storeKeyword} from "./module/store/storeSearch";
+    import {storeKeyword} from "./module/store/storeSearch";
 </script>
 
 <main>
     <div id="wrapper">
         <Search/>
-        <Results pos={undefined} url={`http://localhost:8080/mineral/filtered/${$storeIdentifier}/${$storeKeyword}`} />
+        <Results pos={undefined} url={`http://localhost:8080/mineral/full/${$storeKeyword}`} />
     </div>
 </main>
 

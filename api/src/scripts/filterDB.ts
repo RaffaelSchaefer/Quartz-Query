@@ -39,7 +39,7 @@ const filterDB = (db: any, identifier: string, keyword: string) => {
 };
 
 function filter(db: any, identifier: number, keyword: string) {
-  let aom: number = AOM(db, identifier, keyword); //Amount od Matches
+  let aom: number = AOM(db, identifier, keyword); //Amount of Matches
   let cm: number = 0; //Current Match index
   let result: string = "[";
   if (aom >= 1) {

@@ -1,4 +1,5 @@
 const fDB = require("./scripts/filterDB");
+const ffDB = require("./scripts/fullFilterDB");
 const gAOM = require("./scripts/util/getAmountOfMatches");
 const express = require("express");
 const restAPI = express();
@@ -39,7 +40,16 @@ restAPI.get(
   }
 );
 
-//FIX BUG
+restAPI.get("/mineral/full/:keyword", (req: any, res: any) => {
+    const { keyword } = req.params;
+    res.status(200).send(ffDB(db, keyword));
+});
+
+restAPI.get("/mineral/full/:keyword/:id", (req: any, res: any) => {
+    const { keyword, id } = req.params;
+    res.status(200).send(ffDB(db, keyword)[id]);
+});
+
 restAPI.get("/amount", (req: any, res: any) => {
   res.status(200).send(JSON.parse(`{"amount":${db.length}}`));
 });

@@ -1,5 +1,5 @@
 <script lang="ts">
-    import {storeIdentifier, storeKeyword} from "../store/storeSearch";
+    import {storeKeyword} from "../store/storeSearch";
 </script>
 
 <style lang="sass">
@@ -39,13 +39,6 @@
 
 <div>
     <form>
-        <label for="identifier">Identifier:</label><br/>
-        <input
-                type="text"
-                id="identifier"
-                name="identifier"
-                bind:value={$storeIdentifier}
-        /><br/>
         <label for="keyword">Keyword:</label><br/>
         <input type="text" id="keyword" name="keyword" bind:value={$storeKeyword}/>
     </form>
