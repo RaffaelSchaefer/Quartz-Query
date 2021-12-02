@@ -4,8 +4,18 @@
 
 <style lang="sass">
   @import "../../global"
-  div
-    width: 90%
+
+  #wrapper
+    z-index: 2
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    display: grid
+    place-content: center
+
+  #searchBar
+    width: 90vw
     height: auto
     display: flex
     flex-flow: row
@@ -27,9 +37,10 @@
 
   label
     color: $header-color
+    padding-right: 10px
 
   input
-    z-index: 2
+    z-index: 3
     padding: 5px
     background-color: $module-color-50
     color: $header-color
@@ -37,9 +48,9 @@
     border-left-width: 10px
 </style>
 
-<div>
-    <form>
-        <label for="keyword">Keyword:</label><br/>
+<div id="wrapper">
+    <form id="searchBar">
+        <label for="keyword">Stichwort:</label>
         <input type="text" id="keyword" name="keyword" bind:value={$storeKeyword}/>
     </form>
 </div>

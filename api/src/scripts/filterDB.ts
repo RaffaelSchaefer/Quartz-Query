@@ -41,12 +41,13 @@ const filterDB = (db: any, identifier: string, keyword: string) => {
 function filter(db: any, identifier: number, keyword: string) {
   let aom: number = AOM(db, identifier, keyword); //Amount of Matches
   let cm: number = 0; //Current Match index
+  let regex = new RegExp(keyword, "i");
   let result: string = "[";
   if (aom >= 1) {
     result += "\n";
   }
   for (let i = 0; i < db.length; i++) {
-    if (db[i].getByIndex(identifier) == keyword) {
+    if (db[i].getByIndex(identifier).match(regex, "i")) {
       cm++;
       result += JSON.stringify(db[i]);
       if (cm < aom) {
