@@ -34,6 +34,5 @@ export async function buildMineralModule(pos: number | undefined = undefined, ur
 {:then out}
     {@html out}
 {:catch err}
-    <p>ERROR: {err}
-    <p>
+    <p>{err}<p>
 {/await}

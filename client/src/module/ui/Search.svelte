@@ -5,9 +5,6 @@
 <style lang="sass">
   @import "../../global"
   div
-    position: absolute
-    top: 0
-    left: 0
     width: 90%
     height: auto
     display: flex
@@ -19,7 +16,7 @@
     padding: $default-padding
     margin: $default-margins
     box-shadow: $shadow-color 0 7px 29px 0
-    z-index: 1
+    z-index: 2
 
   button
     margin: 10px
@@ -32,7 +29,7 @@
     color: $header-color
 
   input
-    z-index: 1
+    z-index: 2
     padding: 5px
     background-color: $module-color-50
     color: $header-color

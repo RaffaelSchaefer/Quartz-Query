@@ -5,8 +5,8 @@
 </script>
 
 <main>
-    <Search/>
     <div id="wrapper">
+        <Search/>
         <Results pos={undefined} url={`http://localhost:8080/mineral/filtered/${$storeIdentifier}/${$storeKeyword}`} />
     </div>
 </main>
@@ -14,7 +14,7 @@
 <style lang="sass">
   #wrapper
     position: absolute
-    top: 150px
+    top: 0
     left: 0
     height: 100vh
     width: 100vw
