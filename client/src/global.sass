@@ -1,0 +1,35 @@
+@use "sass:math"
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap')
+
+//Parameters
+$default-margins: 10px
+$default-padding: 10px
+//Fonts
+$default-font: 'Roboto Mono'
+$header-font: 'Roboto'
+//Color-pallet
+$header-color: rgb(149, 153, 138)
+$module-color: rgb(189, 204, 148)
+$module-color-50: rgb(224, 229, 204)
+$highlight-color: rgb(255, 236, 103)
+$background-color: rgb(255, 255, 255)
+$glow-color: rgb(169, 182, 204)
+$shadow-color: rgba(120, 120, 120, 0.33)
+
+*
+  padding: 0
+  margin: 0
+  font-family: $default-font, monospace
+
+.ListElement
+  width: 90%
+  height: auto
+  border: solid 2px $header-color
+  border-left-width: 10px
+  color: $header-color
+  background-color: $module-color-50
+  padding: $default-padding
+  margin: $default-margins
+  box-shadow: $shadow-color 0 7px 29px 0
+  z-index: 1

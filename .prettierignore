@@ -1,9 +1,6 @@
 # IntelliJ project files
 .idea
 
-# Ignore artifacts
-coverage
-
 # Ignore all HTML files
 *.js
 *.json
