@@ -1,7 +1,5 @@
 const fDB = require("./scripts/filterDB");
 const ffDB = require("./scripts/fullFilterDB");
-const gAOM = require("./scripts/util/getAmountOfMatches");
-const gFAOM = require("./scripts/util/fullAmountOfMatches");
 const express = require("express");
 const restAPI = express();
 const cors = require("cors");
@@ -30,25 +28,25 @@ restAPI.get("/mineral/:id", (req: any, res: any) => {
 
 restAPI.get("/mineral/filtered/:identifier/:keyword", (req: any, res: any) => {
   const { identifier, keyword } = req.params;
-  res.status(200).send(fDB(db, identifier, keyword));
+  res.status(200).send([...new Set(fDB(db, identifier, keyword))]);
 });
 
 restAPI.get(
   "/mineral/filtered/:identifier/:keyword/:id",
   (req: any, res: any) => {
     const { identifier, keyword, id } = req.params;
-    res.status(200).send(fDB(db, identifier, keyword)[id]);
+    res.status(200).send([...new Set(fDB(db, identifier, keyword))][id]);
   }
 );
 
 restAPI.get("/mineral/full/:keyword", (req: any, res: any) => {
   const { keyword } = req.params;
-  res.status(200).send(ffDB(db, keyword));
+  res.status(200).send([...new Set(ffDB(db, keyword))]);
 });
 
 restAPI.get("/mineral/full/:keyword/:id", (req: any, res: any) => {
   const { keyword, id } = req.params;
-  res.status(200).send(ffDB(db, keyword)[id]);
+  res.status(200).send([...new Set(ffDB(db, keyword))][id]);
 });
 
 restAPI.get("/amount", (req: any, res: any) => {
@@ -57,12 +55,12 @@ restAPI.get("/amount", (req: any, res: any) => {
 
 restAPI.get("/amount/full/:keyword", (req: any, res: any) => {
   const { keyword } = req.params;
-  res.status(200).send(JSON.parse(`{"amount":${gFAOM(db, keyword)}}`));
+  res.status(200).send(JSON.parse(`{"amount":${[...new Set(ffDB(db, keyword))].length}}`));
 });
 
 restAPI.get("/amount/filtered/:identifier/:keyword", (req: any, res: any) => {
   const { identifier, keyword } = req.params;
   res
     .status(200)
-    .send(JSON.parse(`{"amount":${gAOM(db, identifier, keyword)}}`));
+    .send(JSON.parse(`{"amount":${[...new Set(fDB(db, identifier, keyword))].length}}`));
 });
