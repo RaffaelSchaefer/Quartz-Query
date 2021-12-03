@@ -6,6 +6,7 @@ A mineral based search engine for my dad<br><br>
 ## TODO
 
 - Preview pictures for minerals
-- Include API into electron
+- Electron support
 - Reference to picture (colors)
 - No underscores (Reload .json)
+- Make API branch-less
