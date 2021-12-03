@@ -2,6 +2,7 @@
 import {fetchMineralDB} from "../api/fetchMineral";
 import {storeContentPosition} from "../store/storeContent";
 import {storeError} from "../store/storeError";
+import {storeKeyword} from "../store/storeSearch";
 import Load from "./Load.svelte";
 
 // @ts-ignore
@@ -27,14 +28,14 @@ export async function buildMineralModule(pos: number | undefined = undefined, ur
     if (out == "") {
         $storeError = true;
     }
-    return out;
+    return out.replace(new RegExp('(^|)(' + $storeKeyword + ')(|$)','ig'), '$1<b style="background-color:yellow;">$2</b>$3');
 }
 
 export async function updatePos(url: string) {
     const mineral: any = await fetchMineralDB(undefined, url);
     for (let i = 0; i < mineral.length; i++) {
         let element = document.getElementById(`${i}`);
-            element.addEventListener("click", () => {
+        element.addEventListener("click", () => {
             $storeContentPosition = Number(element.id);
         })
     }
@@ -50,9 +51,9 @@ export async function updatePos(url: string) {
 {:then out}
     {@html out}
     {#await updatePos(url)}
-        {:then res}
-        {:catch err}
-        {/await}
+    {:then res}
+    {:catch err}
+    {/await}
 {:catch err}
     <p>{err}
     <p>
