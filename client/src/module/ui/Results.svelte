@@ -14,7 +14,7 @@ export async function buildMineralModule(pos: number | undefined = undefined, ur
     let out: string = "";
     const mineral: any = await fetchMineralDB(pos, url);
     for (let y = 0; y < mineral.length; y++) {
-        out += `<div class="ListElement" id="Result_${y}"><ul>`;
+        out += `<div class="ListElement" id="${y}"><ul>`;
         for (let i = 0; i < Object.keys(mineral[y]).length - 2; i++) {
             if (!!mineral[y].getByIndex(i)) {
                 out += `<li class="${Object.keys(mineral[y])[i]}_css">${Object.keys(mineral[y])[i]}: ${mineral[y].getByIndex(i)}</li>`;
@@ -25,16 +25,15 @@ export async function buildMineralModule(pos: number | undefined = undefined, ur
     return out;
 }
 
-//TODO FIX BUG
-export async function updatePos(pos, url) {
-    const mineral: any = await fetchMineralDB(pos, url);
+export async function updatePos(url: string) {
+    const mineral: any = await fetchMineralDB(undefined, url);
     for (let i = 0; i < mineral.length; i++) {
-        document.getElementById(`Result_${i}`).addEventListener("click", () => {
-            $storeContentPosition = pos;
+        let element = document.getElementById(`${i}`);
+            element.addEventListener("click", () => {
+            $storeContentPosition = Number(element.id);
         })
     }
 }
-
 </script>
 
 <style lang="sass">
@@ -45,6 +44,10 @@ export async function updatePos(pos, url) {
     <p>Waiting...</p>
 {:then out}
     {@html out}
+    {#await updatePos(url)}
+        {:then res}
+        {:catch err}
+        {/await}
 {:catch err}
     <p>{err}
     <p>

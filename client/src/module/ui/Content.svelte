@@ -14,6 +14,9 @@
         const mineral: any = await fetchMineralDB(pos, `${url}/full/${keyword}`);
             out += `<p class="ContentElement" id="Content">`;
             if (pos != undefined) {
+                if (pos > mineral.length) {
+                    $storeContentPosition = undefined;
+                }
                 for (let i = 0; i < Object.keys(mineral).length; i++) {
                     if (!!mineral.getByIndex(i)) {
                         out += `${Object.keys(mineral)[i]}: ${mineral.getByIndex(i)}<br>`;
