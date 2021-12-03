@@ -2,6 +2,7 @@
 import {fetchMineralDB} from "../api/fetchMineral";
 import {storeContentPosition} from "../store/storeContent";
 import {storeError} from "../store/storeError";
+import Load from "./Load.svelte";
 
 // @ts-ignore
 Object.prototype.getByIndex = function (index) {
@@ -45,7 +46,7 @@ export async function updatePos(url: string) {
 </style>
 
 {#await buildMineralModule(pos, url)}
-    <p>Waiting...</p>
+    <Load/>
 {:then out}
     {@html out}
     {#await updatePos(url)}

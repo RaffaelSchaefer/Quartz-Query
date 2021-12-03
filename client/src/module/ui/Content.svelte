@@ -2,6 +2,7 @@
     import {fetchMineralDB} from "../api/fetchMineral";
     import {storeKeyword} from "../store/storeSearch";
     import {storeContentPosition} from "../store/storeContent";
+    import Load from "./Load.svelte";
     // @ts-ignore
     Object.prototype.getByIndex = function (index) {
         return this[Object.keys(this)[index]];
@@ -17,7 +18,7 @@
             if (pos > mineral.length) {
                 $storeContentPosition = undefined;
             }
-            for (let i = 0; i < Object.keys(mineral).length; i++) {
+            for (let i = 0; i < Object.keys(mineral).length-2; i++) {
                 if (!!mineral.getByIndex(i)) {
                     out += `${Object.keys(mineral)[i]}: ${mineral.getByIndex(i)}<br>`;
                 }
@@ -46,7 +47,7 @@
 
 <div id="wrapper">
     {#await buildContentModule($storeContentPosition, url, $storeKeyword)}
-        <p>Waiting...</p>
+        <Load/>
     {:then out}
         {@html out}
     {:catch err}

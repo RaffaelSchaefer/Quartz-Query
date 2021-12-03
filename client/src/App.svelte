@@ -13,7 +13,7 @@
                 <Results pos={undefined} url={`http://localhost:8080/mineral/full/${$storeKeyword}`} />
             </div>
         </div>
-        <Content/>
+        <Content url={`http://localhost:8080/mineral`} />
     </div>
 </main>
 

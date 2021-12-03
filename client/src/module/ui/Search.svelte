@@ -2,6 +2,10 @@
     import {storeKeyword} from "../store/storeSearch";
     import {storeError} from "../store/storeError";
     $: $storeError = !$storeKeyword;
+    let input: string = "Silber";
+    const onKeyPress = e => {
+        if (e.charCode === 13) $storeKeyword = input;
+    };
 </script>
 
 <style lang="sass">
@@ -36,5 +40,5 @@
 </style>
 
 <div id="wrapper">
-    <input type="text" class:error={$storeError} bind:value={$storeKeyword}/>
+    <input type="text" class:error={$storeError} on:keypress={onKeyPress} bind:value={input}/>
 </div>
