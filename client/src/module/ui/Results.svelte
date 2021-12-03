@@ -1,5 +1,6 @@
 <script lang="ts">// @ts-ignore
 import {fetchMineralDB} from "../api/fetchMineral";
+import {storeContentPosition} from "../store/storeContent";
 
 // @ts-ignore
 Object.prototype.getByIndex = function (index) {
@@ -23,6 +24,17 @@ export async function buildMineralModule(pos: number | undefined = undefined, ur
     }
     return out;
 }
+
+//TODO FIX BUG
+export async function updatePos(pos, url) {
+    const mineral: any = await fetchMineralDB(pos, url);
+    for (let i = 0; i < mineral.length; i++) {
+        document.getElementById(`Result_${i}`).addEventListener("click", () => {
+            $storeContentPosition = pos;
+        })
+    }
+}
+
 </script>
 
 <style lang="sass">
@@ -34,5 +46,6 @@ export async function buildMineralModule(pos: number | undefined = undefined, ur
 {:then out}
     {@html out}
 {:catch err}
-    <p>{err}<p>
+    <p>{err}
+    <p>
 {/await}

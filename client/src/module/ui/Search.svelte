@@ -11,12 +11,10 @@
     top: 0
     left: 0
     width: 100%
-    display: grid
-    place-content: center
 
   input
     font-size: 12pt
-    width: 90vw
+    width: 45vw
     height: auto
     display: flex
     flex-flow: row
@@ -26,7 +24,7 @@
     background-color: $module-color-50
     padding: $default-padding
     margin: $default-margins
-    box-shadow: $shadow-color 0 7px 29px 0
+    box-shadow: $shadow-color 0 7px 5px 0
     z-index: 3
 </style>
 
