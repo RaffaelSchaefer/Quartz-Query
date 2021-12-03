@@ -1,6 +1,7 @@
 <script lang="ts">// @ts-ignore
 import {fetchMineralDB} from "../api/fetchMineral";
 import {storeContentPosition} from "../store/storeContent";
+import {storeError} from "../store/storeError";
 
 // @ts-ignore
 Object.prototype.getByIndex = function (index) {
@@ -21,6 +22,9 @@ export async function buildMineralModule(pos: number | undefined = undefined, ur
             }
         }
         out += "</ul></div>";
+    }
+    if (out == "") {
+        $storeError = true;
     }
     return out;
 }

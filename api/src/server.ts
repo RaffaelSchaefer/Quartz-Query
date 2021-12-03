@@ -1,7 +1,7 @@
 const fDB = require("./scripts/filterDB");
 const ffDB = require("./scripts/fullFilterDB");
 const gAOM = require("./scripts/util/getAmountOfMatches");
-const gFAOM = require("./scripts/util/fullAmountOfMatches")
+const gFAOM = require("./scripts/util/fullAmountOfMatches");
 const express = require("express");
 const restAPI = express();
 const cors = require("cors");
@@ -42,13 +42,13 @@ restAPI.get(
 );
 
 restAPI.get("/mineral/full/:keyword", (req: any, res: any) => {
-    const { keyword } = req.params;
-    res.status(200).send(ffDB(db, keyword));
+  const { keyword } = req.params;
+  res.status(200).send(ffDB(db, keyword));
 });
 
 restAPI.get("/mineral/full/:keyword/:id", (req: any, res: any) => {
-    const { keyword, id } = req.params;
-    res.status(200).send(ffDB(db, keyword)[id]);
+  const { keyword, id } = req.params;
+  res.status(200).send(ffDB(db, keyword)[id]);
 });
 
 restAPI.get("/amount", (req: any, res: any) => {
@@ -56,16 +56,13 @@ restAPI.get("/amount", (req: any, res: any) => {
 });
 
 restAPI.get("/amount/full/:keyword", (req: any, res: any) => {
-    const { keyword } = req.params;
-    res.status(200).send(JSON.parse(`{"amount":${gFAOM(db, keyword)}}`));
+  const { keyword } = req.params;
+  res.status(200).send(JSON.parse(`{"amount":${gFAOM(db, keyword)}}`));
 });
 
-restAPI.get(
-  "/amount/filtered/:identifier/:keyword",
-  (req: any, res: any) => {
-    const { identifier, keyword } = req.params;
-    res
-      .status(200)
-      .send(JSON.parse(`{"amount":${gAOM(db, identifier, keyword)}}`));
-  }
-);
+restAPI.get("/amount/filtered/:identifier/:keyword", (req: any, res: any) => {
+  const { identifier, keyword } = req.params;
+  res
+    .status(200)
+    .send(JSON.parse(`{"amount":${gAOM(db, identifier, keyword)}}`));
+});

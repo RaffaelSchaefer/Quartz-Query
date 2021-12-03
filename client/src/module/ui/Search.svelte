@@ -1,5 +1,7 @@
 <script lang="ts">
     import {storeKeyword} from "../store/storeSearch";
+    import {storeError} from "../store/storeError";
+    $: $storeError = !$storeKeyword;
 </script>
 
 <style lang="sass">
@@ -13,21 +15,26 @@
     width: 100%
 
   input
+    border: solid 2px $header-color
+    border-left-width: 10px
     font-size: 12pt
     width: 45vw
     height: auto
     display: flex
     flex-flow: row
-    border: solid 2px $header-color
-    border-left-width: 10px
-    color: $header-color
-    background-color: $module-color-50
     padding: $default-padding
     margin: $default-margins
     box-shadow: $shadow-color 0 7px 5px 0
     z-index: 3
+    color: $header-color
+    background-color: $module-color-50
+
+  .error
+    color: $error-color1
+    border-color: $error-color1
+    background-color: $error-color2
 </style>
 
 <div id="wrapper">
-        <input type="text" id="keyword" name="keyword" bind:value={$storeKeyword}/>
+    <input type="text" class:error={$storeError} bind:value={$storeKeyword}/>
 </div>

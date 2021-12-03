@@ -12,18 +12,18 @@
     export async function buildContentModule(pos: number | undefined = undefined, url: string = "http://localhost:8080/mineral", keyword: string) {
         let out: string = "";
         const mineral: any = await fetchMineralDB(pos, `${url}/full/${keyword}`);
-            out += `<p class="ContentElement" id="Content">`;
-            if (pos != undefined) {
-                if (pos > mineral.length) {
-                    $storeContentPosition = undefined;
-                }
-                for (let i = 0; i < Object.keys(mineral).length; i++) {
-                    if (!!mineral.getByIndex(i)) {
-                        out += `${Object.keys(mineral)[i]}: ${mineral.getByIndex(i)}<br>`;
-                    }
+        out += `<p class="ContentElement" id="Content">`;
+        if (pos != undefined) {
+            if (pos > mineral.length) {
+                $storeContentPosition = undefined;
+            }
+            for (let i = 0; i < Object.keys(mineral).length; i++) {
+                if (!!mineral.getByIndex(i)) {
+                    out += `${Object.keys(mineral)[i]}: ${mineral.getByIndex(i)}<br>`;
                 }
             }
-            out += "</p>";
+        }
+        out += "</p>";
         return out;
     }
 </script>
@@ -50,7 +50,7 @@
     {:then out}
         {@html out}
     {:catch err}
-        <p>{err}
+        <p>Mineral not found: <br>{err}
         <p>
     {/await}
 </div>
