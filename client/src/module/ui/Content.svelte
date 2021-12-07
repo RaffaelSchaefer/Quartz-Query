@@ -31,7 +31,7 @@
             }
         }
         out += "</div>";
-        return out.replace(new RegExp('(^|)(' + keyword + ')(|$)','ig'), '$1<b style="background-color:yellow;">$2</b>$3');
+        return out.replace(new RegExp('(^|)(' + keyword + ')(|$)','ig'), '$1<b style="background-color:yellow; box-shadow: rgba(0, 0, 0, 0.16) 0 1px 4px;">$2</b>$3');
     }
 </script>
 

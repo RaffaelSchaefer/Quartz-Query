@@ -14,6 +14,8 @@ $module-color: lightgray
 $module-color-50: white
 $error-color1: darkred
 $error-color2: lightcoral
+$hover-color1: rgb(24, 50, 25)
+$hover-color2: MintCream
 $background-color: white
 $shadow-color: rgba(120, 120, 120, 0.33)
 
@@ -32,6 +34,13 @@ $shadow-color: rgba(120, 120, 120, 0.33)
   background-color: $module-color-50
   padding: $default-padding
   margin: $default-margins
+  border-radius: 2.5px
+  box-shadow: rgba(0, 0, 0, 0.16) 0 1px 4px
+
+.ListElement:hover
+  border-color: $hover-color1
+  color: $hover-color1
+  background-color: $hover-color2
 
 .ContentElement
   color: $header-color

@@ -32,6 +32,7 @@
     z-index: 3
     color: $header-color
     background-color: $module-color-50
+    border-radius: 2.5px
 
   .error
     color: $error-color1

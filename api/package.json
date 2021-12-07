@@ -1,5 +1,5 @@
 {
-  "name": "quartz_query_server",
+  "name": "quartz-query-server",
   "version": "0.0.1",
   "description": "The Quartz Query Server",
   "main": "build/server.js",
