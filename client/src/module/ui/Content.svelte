@@ -22,7 +22,7 @@
             for (let i = 0; i < Object.keys(mineral).length-2; i++) {
                 if (!!mineral.getByIndex(i)) {
                     if (count === 0) {
-                        out += `<h1 class="ContentHeader">${Object.keys(mineral)[i]}: ${mineral.getByIndex(i)}<br></h1>`;
+                        out += `<h4 class="ContentHeader">${Object.keys(mineral)[i]}: ${mineral.getByIndex(i)}<br></h4>`;
                     }else {
                         out += `<p>${Object.keys(mineral)[i]}: ${mineral.getByIndex(i)}<br></p>`;
                     }
@@ -41,24 +41,31 @@
   p
     color: $header-color
 
+  h3
+    padding-top: 10px
+    padding-left: 5px
+
   #wrapper
     position: fixed
     top: 0
     left: 50vw
     width: 50vw
     height: 100vh
+    padding-top: 65px
     background-color: $module-color-50
-    display: grid
-    place-content: center
 </style>
 
 <div id="wrapper">
-    {#await buildContentModule($storeContentPosition, url, $storeKeyword)}
-        <Load/>
-    {:then out}
-        {@html out}
-    {:catch err}
-        <p>Mineral not found: <br>{err}
-        <p>
-    {/await}
+    <h3>Vorschau</h3>
+    <div class="centerContainer">
+        {#await buildContentModule($storeContentPosition, url, $storeKeyword)}
+            <Load/>
+        {:then out}
+            {@html out}
+        {:catch err}
+            <p>Mineral not found: <br>{err}
+            <p>
+        {/await}
+    </div>
+    <h3>Fotos</h3>
 </div>
