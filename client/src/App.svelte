@@ -3,9 +3,11 @@
     import Search from "./module/ui/Search.svelte";
     import Content from "./module/ui/Content.svelte"
     import {storeKeyword} from "./module/store/storeSearch";
+    import Header from "./module/ui/Header.svelte";
 </script>
 
 <main>
+    <Header/>
     <div id="appContent">
         <div id="leftContent">
             <Search/>
