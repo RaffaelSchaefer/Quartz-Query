@@ -1,12 +1,12 @@
 {
-  "theme_color": "#000000",
-  "background_color": "#ffffff",
+  "theme_color": "#f8fafc",
+  "background_color": "#f8fafc",
   "display": "standalone",
   "scope": "/",
   "start_url": "/",
-  "name": "Next PWA",
-  "short_name": "PWA",
-  "description": "This app is to demo PWA in Next.js",
+  "name": "Quartz Query Client",
+  "short_name": "Quartz Query",
+  "description": "The Quartz Query Client PWA",
   "icons": [
     {
       "src": "icon/manifest-icon-192.maskable.png",
