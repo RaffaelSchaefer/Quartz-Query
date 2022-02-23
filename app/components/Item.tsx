@@ -1,5 +1,5 @@
 import React from "react";
-import Mineral from "../types/mineral";
+import {Mineral} from "../types/mineral";
 
 const Item = (mineral: Mineral) => {
     return (
@@ -15,8 +15,6 @@ const Item = (mineral: Mineral) => {
             <p>{mineral.Tauschdatum}</p>
             <p>{mineral.Kauf_Tauschpreis}</p>
             <p>{mineral.Wert_DM}</p>
-            <p>{mineral.Fotolink1}</p>
-            <p>{mineral.Fotolink2}</p>
         </div>
     );
 };

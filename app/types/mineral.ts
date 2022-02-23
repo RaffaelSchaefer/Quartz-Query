@@ -1,4 +1,4 @@
-export default interface Mineral {
+export type Mineral = {
     A_Code?: string;
     Name?: string;
     Paragenese?: string;
