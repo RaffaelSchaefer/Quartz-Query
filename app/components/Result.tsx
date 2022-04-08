@@ -2,14 +2,14 @@ import React, {useEffect, useState} from "react";
 import {Mineral} from "../types/mineral";
 import Item from "./Item";
 import {apiURL} from "../constants/apiConstants";
+import {searchterm} from "../types/searchterm";
 
 const url = `${apiURL}mineral/search/`;
 
-export default function Result() {
+export default function Result(search: searchterm) {
     const [loading, setLoading] = useState<boolean>(true);
     const [minerals, setMinerals] = useState<Mineral[] | undefined>(undefined);
-    const [input, setInput] = useState<string>("Quartz");
-
+    const [input, setInput] = useState<string>(search.input);
     const wrapperStyle: string = "w-full h-full flex flex-wrap p-6 overflow-y-auto scrollbar-hide ease-in-out duration-700";
 
     useEffect(() => {
