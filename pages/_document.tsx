@@ -1,5 +1,8 @@
 import Document, {Head, Html, Main, NextScript} from "next/document";
 
+/**
+ * Page used for PWA
+ */
 class MyDocument extends Document {
     render() {
         return (

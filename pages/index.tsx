@@ -2,6 +2,11 @@ import type { NextPage } from "next";
 import Searchbar from "../app/components/Searchbar";
 import Result from "../app/components/Result";
 
+/**
+ * Main page of the site
+ * @constructor
+ * @author Raffael Elias Schäfer
+ */
 const Home: NextPage = () => {
   return (
     <div

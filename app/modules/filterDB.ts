@@ -39,7 +39,7 @@ function filterDB(db: any, keyword: string) {
  * @param db - db pass truth
  * @param identifier - tags represented via its index
  * @param regex - the search term as regex expression
- * @returns A array of matching minerals
+ * @returns A subset of matching minerals
  * @author Raffael Elias Schäfer
  */
 function fullFilter(db: any, identifier: number, regex: RegExp) {

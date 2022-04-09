@@ -6,6 +6,12 @@ import {searchterm} from "../types/searchterm";
 
 const url = `${apiURL}mineral/search/`;
 
+/**
+ * List of matching Minerals
+ * @param {searchterm} search
+ * @constructor
+ * @author Raffael Elias Schäfer
+ */
 export default function Result(search: searchterm) {
     const [loading, setLoading] = useState<boolean>(true);
     const [minerals, setMinerals] = useState<Mineral[] | undefined>(undefined);

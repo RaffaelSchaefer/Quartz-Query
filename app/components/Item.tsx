@@ -1,6 +1,12 @@
 import React from "react";
 import {Mineral} from "../types/mineral";
 
+/**
+ * Components used for displaying search results
+ * @param {Mineral} mineral - Single Mineral used for information to display
+ * @constructor
+ * @author Raffael Elias Schäfer
+ */
 const Item = (mineral: Mineral) => {
     return (
         <div
