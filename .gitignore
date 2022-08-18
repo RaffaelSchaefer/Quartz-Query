@@ -1,28 +1,16 @@
 # Folders
 # IDE
 .idea
+.vscode
 # Node.js
 node_modules
 # Folder
-Quartz_query_client-darwin-x64-darwin-x64
-# Build-Folder
-api/build/client/scripts
-api/build/client/css
-api/build/db/csv
-api/build/scripts
-api/src/db/json
-client/public/build
+deprecated
 # Filetypes
-*.js
 *.css
-*.js.map
+*.map
 # Files
 .DS_Store
 yarn.lock
-client/package-lock.json
-api/package-lock.json
 # Exceptions
 # Files
-!jest.config.js
-!babel.conig.js
-!client/rollup.config.js

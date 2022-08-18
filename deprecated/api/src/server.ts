@@ -3,7 +3,7 @@ const ffDB = require("./scripts/fullFilterDB");
 const express = require("express");
 const restAPI = express();
 const cors = require("cors");
-const db: any = require("./db/json/mineral_data_german_211119.json");
+const db: any = require("./db/json/minData.json");
 const PORT: number = 8080;
 
 restAPI.use(express.json());

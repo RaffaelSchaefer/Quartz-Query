@@ -1,4 +1,4 @@
-const csv = require("csvtojson");
+const csv = require("src/scripts/util/csvtojson");
 const fs = require("fs");
 
 const convertCSVtoJSON = async (
