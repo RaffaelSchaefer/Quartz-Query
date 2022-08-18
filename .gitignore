@@ -5,7 +5,7 @@
 # Node.js
 node_modules
 # Folder
-deprecated
+old
 # Filetypes
 *.css
 *.map
