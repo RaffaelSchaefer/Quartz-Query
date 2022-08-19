@@ -1,32 +1,24 @@
-const minData = require('./minData.json');
 const express = require('express');
-//const mongodb = require('mongodb');
+const mongodb = require('mongodb');
 
 const router = express.Router();
 
 //Get
 
-router.get('/', (req, res) => {
-    res.status(200).send(minData);
+router.get('/', async (req, res) => {
+    const minerals = await loadMineralCollection();
+    res.status(200).send(await minerals.find({A_Code: {$ne: ""}}).sort({A_Code: 1}).toArray());
 });
 
-router.get("/:id", (req, res) => {
-    const { id } = req.params;
-    if (0 < id < minData.length) {
-        res.status(200).send(minData[id]);
-    } else {
-        res.status(404);
-    }
+router.get('/:id', async (req, res) => {
+    const minerals = await loadMineralCollection();
+    res.status(200).send(await minerals.find({_id:  mongodb.ObjectId(req.params.id),A_Code: {$ne: ""}}).sort({A_Code: 1}).toArray());
 });
 
-router.get("/filter/:keyword", (req, res) => {
-    const { keyword } = req.params;
-    res.status(200).send([...new Set(fullFilterDB(minData, keyword))]);
-});
-
-router.get("/filter/:keyword/:id", (req, res) => {
-    const { keyword, id } = req.params;
-    res.status(200).send([...new Set(fullFilterDB(minData, keyword))][id]);
+router.get("/filter/:keyword", async (req, res) => {
+    const minerals = await loadMineralCollection();
+    let arr = await minerals.find({ $text : { $search: req.params.keyword }}).sort({A_Code: 1}).toArray();
+    res.status(200).send(arr);
 });
 
 //Add
@@ -35,31 +27,9 @@ router.get("/filter/:keyword/:id", (req, res) => {
 
 //Functions
 
-Object.prototype.getByIndex = function (index) {
-    return this[Object.keys(this)[index]];
-};
-
-const fullFilterDB = (db, keyword) => {
-    let out = "[";
-    let regex = new RegExp(keyword, "i");
-    for (let i = 0; i < 12; i++) {
-        out += fullFilter(db, i, regex);
-    }
-    if (out != "[") {
-        out = out.substring(0, out.length - 1);
-        out += "]";
-        return JSON.parse(out);
-    }
-};
-
-function fullFilter(db, identifier, regex) {
-    let result = "";
-    for (let i = 0; i < db.length; i++) {
-        if (db[i].getByIndex(identifier).match(regex, "i")) {
-            result += JSON.stringify(db[i]) + ",";
-        }
-    }
-    return result;
+async function loadMineralCollection() {
+    const client = await mongodb.MongoClient.connect('mongodb://127.0.0.1:27017', {useNewUrlParser: true});
+    return client.db('Quartz-Query-Demo').collection('minerals');
 }
 
 module.exports = router;

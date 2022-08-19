@@ -4,6 +4,7 @@
 .vscode
 # Node.js
 node_modules
+client/node_modules
 # Folder
 old
 # Filetypes
