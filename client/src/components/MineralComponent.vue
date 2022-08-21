@@ -1,15 +1,11 @@
-<style>
-
-</style>
-
 <template>
-  <form class="sticky bg-white shadow p-4 mb-4" @submit.prevent="searchMinerals">
-    <label class="text-slate-700 text-sm font-bold mb-2" for="search-input">Eingabe: </label>
-    <input class="shadow appearance-none border rounded text-slate-700 pl-1 mr-1 leading-loose focus:outline-none focus:shadow-outline" type="text" placeholder="Deine Suchanfrage" name="search" id="search-input" v-model="search" required autofocus>
-    <input class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1.5 px-2 rounded focus:outline-none focus:shadow-outline" type="submit" value="senden">
-    <p class="ml-2 inline text-xs text-gray-400" v-if="minerals.length > 0">
-      Anzahl der Übereinstimmungen: {{minerals.length}}
-    </p>
+  <form class="sticky top-0 bg-white shadow-md p-4" @submit.prevent="searchMinerals">
+    <label>
+      <input class="shadow appearance-none border rounded text-slate-700 invalid:border-red-400 invalid:placeholder-red-600 duration-200 pl-1 mr-1 w-full box-border leading-loose focus:outline-none focus:shadow-outline" type="search" placeholder="Deine Suchanfrage" name="search" id="search-input" v-model="search" required autofocus>
+      <span class="mt-2 inline text-xs text-gray-400" v-if="minerals.length > 0">
+        Anzahl der Übereinstimmungen: {{minerals.length}}
+      </span>
+    </label>
   </form>
   <div class="grid place-content-center">
     <div class="p-2 mx-2 my-4 border rounded shadow" v-for="(mineral, index) in minerals" v-bind:item = "mineral" v-bind:index = "index" v-bind:key = "mineral._id">

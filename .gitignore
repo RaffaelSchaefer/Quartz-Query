@@ -8,8 +8,6 @@ client/node_modules
 # Folder
 old
 # Filetypes
-*.css
-*.map
 # Files
 .DS_Store
 yarn.lock
