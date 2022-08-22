@@ -1,24 +1,24 @@
 <template>
-  <form class="sticky top-0 bg-white shadow-md p-4" @submit.prevent="searchMinerals">
+  <form class="sticky top-0 bg-white dark:bg-slate-700 shadow-md p-4" @submit.prevent="searchMinerals">
     <label>
-      <input class="shadow appearance-none border rounded text-slate-700 invalid:border-red-400 invalid:placeholder-red-600 duration-200 pl-1 mr-1 w-full box-border leading-loose focus:outline-none focus:shadow-outline" type="search" placeholder="Deine Suchanfrage" name="search" id="search-input" v-model="search" required autofocus>
+      <input class="shadow appearance-none border rounded text-slate-600 invalid:border-red-400 invalid:placeholder-red-600 duration-200 pl-1 mr-1 w-full box-border leading-loose focus:outline-none focus:shadow-outline" type="search" placeholder="Deine Suchanfrage" name="search" id="search-input" v-model="search" required autofocus>
       <span class="mt-2 inline text-xs text-gray-400" v-if="minerals.length > 0">
         Anzahl der Übereinstimmungen: {{minerals.length}}
       </span>
     </label>
   </form>
-  <div class="grid place-content-center">
-    <div class="p-2 mx-2 my-4 border rounded shadow" v-for="(mineral, index) in minerals" v-bind:item = "mineral" v-bind:index = "index" v-bind:key = "mineral._id">
-      <p class="text-2xl font-bold text-slate-800">{{mineral.A_Code}}</p>
-      <p class="text-slate-700" v-if="!!mineral.Name">Name: {{mineral.Name}}</p>
-      <p class="text-slate-700" v-if="!!mineral.Paragenese">Paragenese: {{mineral.Paragenese}}</p>
-      <p class="text-slate-700" v-if="!!mineral.Fundort">Fundort: {{mineral.Fundort}}</p>
-      <p class="text-slate-700" v-if="!!mineral.Ausbildung">Ausbildung: {{mineral.Ausbildung}}</p>
-      <p class="text-slate-700" v-if="!!mineral.Funddatum">Funddatum: {{mineral.Funddatum}}</p>
-      <p class="text-slate-700" v-if="!!mineral.Kaufdatum">Kaufdatum: {{mineral.Kaufdatum}}</p>
-      <p class="text-slate-700" v-if="!!mineral.Tauschdatum">Tauschdatum: {{mineral.Tauschdatum}}</p>
-      <p class="text-slate-700" v-if="!!mineral.Kauf_Tauschpreis">Kauf/Tauschpreis: {{mineral.Kauf_Tauschpreis}}</p>
-      <p class="text-slate-700" v-if="!!mineral.Wert_DM">Wert in DM: {{mineral.Wert_DM}}</p>
+  <div class="grid place-content-center bg-slate-50 dark:bg-slate-800">
+    <div class="p-2 mx-2 my-4 border rounded shadow bg-white hover:bg-sky-50 dark:bg-slate-600 hover:dark:bg-slate-500 dark:border-slate-600" v-for="(mineral, index) in minerals" v-bind:item = "mineral" v-bind:index = "index" v-bind:key = "mineral._id">
+      <p class="text-2xl font-bold text-slate-800 dark:text-slate-50">{{mineral.A_Code}}</p>
+      <p class="text-slate-700 dark:text-slate-200" v-if="!!mineral.Name">Name: {{mineral.Name}}</p>
+      <p class="text-slate-700 dark:text-slate-200" v-if="!!mineral.Paragenese">Paragenese: {{mineral.Paragenese}}</p>
+      <p class="text-slate-700 dark:text-slate-200" v-if="!!mineral.Fundort">Fundort: {{mineral.Fundort}}</p>
+      <p class="text-slate-700 dark:text-slate-200" v-if="!!mineral.Ausbildung">Ausbildung: {{mineral.Ausbildung}}</p>
+      <p class="text-slate-700 dark:text-slate-200" v-if="!!mineral.Funddatum">Funddatum: {{mineral.Funddatum}}</p>
+      <p class="text-slate-700 dark:text-slate-200" v-if="!!mineral.Kaufdatum">Kaufdatum: {{mineral.Kaufdatum}}</p>
+      <p class="text-slate-700 dark:text-slate-200" v-if="!!mineral.Tauschdatum">Tauschdatum: {{mineral.Tauschdatum}}</p>
+      <p class="text-slate-700 dark:text-slate-200" v-if="!!mineral.Kauf_Tauschpreis">Kauf/Tauschpreis: {{mineral.Kauf_Tauschpreis}}</p>
+      <p class="text-slate-700 dark:text-slate-200" v-if="!!mineral.Wert_DM">Wert in DM: {{mineral.Wert_DM}}</p>
     </div>
   </div>
 </template>
