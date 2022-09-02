@@ -5,6 +5,7 @@
       <MineralList class="" v-bind:minerals="this.minerals" v-model="this.selectedMineral"></MineralList>
       <MineralViewer v-bind:selectedMineral="this.selectedMineral"></MineralViewer>
     </div>
+    <MineralCreator></MineralCreator>
   </div>
 </template>
 
@@ -12,11 +13,13 @@
 import SearchBar from "@/components/SearchBar";
 import MineralList from "@/components/MineralList";
 import MineralViewer from "@/components/MineralViewer";
+import MineralCreator from "@/components/MineralCreator";
 export default {
   components: {
     SearchBar,
     MineralList,
-    MineralViewer
+    MineralViewer,
+    MineralCreator
   },
   data() {
     return {
