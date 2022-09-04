@@ -22,6 +22,22 @@ router.get("/filter/:keyword", async (req, res) => {
 });
 
 //Add
+router.post("/", async (req, res) => {
+    const minerals = await loadMineralCollection();
+    await minerals.insertOne({
+        A_Code: req.body.A_Code,
+        Name: req.body.Name,
+        Paragenese: req.body.Paragenese,
+        Fundort: req.body.Fundort,
+        Ausbildung: req.body.Ausbildung,
+        Fundatum: req.body.Fundatum,
+        Kaufdatum: req.body.Kaufdatum,
+        Tauschdatum: req.body.Tauschdatum,
+        Kauf_Tauschpreis: req.body.Kauf_Tauschpreis,
+        Wert_DM: req.body.Wert_DM
+    })
+    res.status(201).send;
+})
 
 //Delete
 
