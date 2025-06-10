@@ -36,7 +36,7 @@ router.post("/", async (req, res) => {
         Kauf_Tauschpreis: req.body.Kauf_Tauschpreis,
         Wert_DM: req.body.Wert_DM
     })
-    res.status(201).send;
+    res.status(201).send();
 })
 
 //Delete
